@@ -112,9 +112,17 @@
     let cpu_usage_chart = chart.chartAtIndex(document.getElementById("cpu_usage"), cpu_arr);
 
     // Dropdowns
-    $("#show_additional_ram_info").click(style.toggleDisplay(document.getElementById("additional_ram_info")));
-    $("#show_additional_cpu_info").click(style.toggleDisplay(document.getElementById("additional_cpu_info")));
-    $("#show_additional_gpu_info").click(style.toggleDisplay(document.getElementById("additional_gpu_info")));
+    $("#show_additional_ram_info").click(function() {
+      $("#additional_ram_info").css('display') === "none" ? $("#additional_ram_info").css('display', 'block') : $("#additional_ram_info").css('display', 'none');
+    });
+
+    $("#show_additional_cpu_info").click(function() {
+      $("#additional_cpu_info").css('display') === "none" ? $("#additional_cpu_info").css('display', 'block') : $("#additional_cpu_info").css('display', 'none');
+    });
+
+    $("#show_additional_gpu_info").click(function() {
+      $("#additional_gpu_info").css('display') === "none" ? $("#additional_gpu_info").css('display', 'block') : $("#additional_gpu_info").css('display', 'none');
+    });
 
 
     // Mem Static Info
