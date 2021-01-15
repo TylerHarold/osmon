@@ -3,13 +3,13 @@
 <script type="text/javascript">
   window.$ = window.jQuery = require('jquery');
   window.sys = require("systeminformation");
-  window.chart = require('../js/charts');
   window.customTitlebar = require("custom-electron-titlebar");
+
+  window.chart = require('../js/charts');
+  window.style = require('../js/style');
+
   const { getCurrentWindow, Menu, MenuItem } = require("electron").remote;
 
-</script>
-
-<script>
   window.addEventListener('DOMContentLoaded', () => {
     let titleBar = new customTitlebar.Titlebar({
       backgroundColor: customTitlebar.Color.fromHex('#2f3640'),
@@ -21,7 +21,6 @@
     titleBar.updateMenu(menu);
     titleBar.updateTitle("Osmon");
   });
-
 </script>
 
 <html>
@@ -115,17 +114,9 @@
 
 
     // Dropdowns
-    $("#show_additional_ram_info").click(function() {
-      $("#additional_ram_info").css('display') === "none" ? $("#additional_ram_info").css('display', 'block') : $("#additional_ram_info").css('display', 'none');
-    });
-
-    $("#show_additional_cpu_info").click(function() {
-      $("#additional_cpu_info").css('display') === "none" ? $("#additional_cpu_info").css('display', 'block') : $("#additional_cpu_info").css('display', 'none');
-    });
-
-    $("#show_additional_gpu_info").click(function() {
-      $("#additional_gpu_info").css('display') === "none" ? $("#additional_gpu_info").css('display', 'block') : $("#additional_gpu_info").css('display', 'none');
-    });
+    $("#show_additional_ram_info").click(style.toggleDisplay(document.getElementById("additional_ram_info")));
+    $("#show_additional_cpu_info").click(style.toggleDisplay(document.getElementById("additional_cpu_info")));
+    $("#show_additional_gpu_info").click(style.toggleDisplay(document.getElementById("additional_gpu_info")));
 
     // Mem Static Info
     sys.memLayout().then(data => {
