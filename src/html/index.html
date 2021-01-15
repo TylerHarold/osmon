@@ -3,9 +3,10 @@
 <script type="text/javascript">
   window.$ = window.jQuery = require('jquery');
   window.sys = require("systeminformation");
-  window.chart = require("chart.js");
+  window.chart = require('../js/charts');
   window.customTitlebar = require("custom-electron-titlebar");
   const { getCurrentWindow, Menu, MenuItem } = require("electron").remote;
+
 </script>
 
 <script>
@@ -109,52 +110,8 @@
     let mem_arr = [];
     let cpu_arr = [];
 
-    // Chart styling
-    let chart_options = {
-      scales: {
-        xAxes: [{
-          ticks: {
-            beginAtZero: true,
-            fontColor: 'white'
-          }
-        }],
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            fontColor: 'white'
-          }
-        }]
-      },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
-    }
-
-    let ram_usage_canvas = document.getElementById("ram_usage");
-    let ram_usage_chart = new Chart(ram_usage_canvas, {
-      type: 'line',
-      data: {
-        labels: mem_arr,
-        datasets: [{
-          data: mem_arr
-        }]
-      },
-      options: chart_options
-    });
-
-    let cpu_usage_canvas = document.getElementById("cpu_usage");
-    let cpu_usage_chart = new Chart(cpu_usage_canvas, {
-      type: 'line',
-      data: {
-        labels: cpu_arr,
-        datasets: [{
-          data: cpu_arr
-        }]
-      },
-      options: chart_options
-    });
+    let ram_usage_chart = chart.chartAtIndex(document.getElementById("ram_usage"), mem_arr);
+    let cpu_usage_chart = chart.chartAtIndex(document.getElementById("cpu_usage"), cpu_arr);
 
 
     // Dropdowns
