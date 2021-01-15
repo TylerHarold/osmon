@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --gray: #2f3640;
+  --gray-light: #353b48;
+  --contrast: #40739e;
+  --white: #ffffff;
+  --light: #dcdde1;
+}
+
+* {
+  overflow: hidden;
+}
+
+html, body {
+  background: var(--white);
+  font-family: 'Encode Sans', sans-serif;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--white);
+}
+
+.gray-box {
+  background: var(--gray);
+  width: 100%;
+  padding: 15px;
+}
+
+.gray-light-box {
+  background: var(--gray-light);
+  width: 100%;
+  padding: 15px;
+}
+
+.contrast-box {
+  background: var(--contrast);
+  width: 100%;
+  padding: 15px;
+}
+
+.light-text {
+  color: var(--light);
+}
+
+button {
+  outline: none;
+  border: none;
+  text-align: left;
+}
+
+button:active {
+  outline: none;
+  border: none;
+  text-align: left;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
