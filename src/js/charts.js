@@ -18,9 +18,13 @@ module.exports = {
             }]
         },
         legend: {
+            display: false,
             labels: {
                 fontColor: 'white'
             }
+        },
+        tooltips: {
+            enabled: false,
         }
     },
 
